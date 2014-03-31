@@ -14,7 +14,7 @@
   $(document).on('ready', function() {
     $colorboxOverlay = $("#cboxOverlay");
     $colorboxBox = $("#colorbox");
-  
+
     $(document).on('click', '[data-colorbox="true"]', function(e) {
       e.preventDefault();
 
@@ -36,7 +36,7 @@
       });
     });
 
-    $('[data-colorbox-static="true"]').colorbox({ 
+    $('[data-colorbox-static="true"]').colorbox({
       height: function() { return $(this).data("colorbox-height") || false },
       width: function() { return $(this).data("colorbox-width") || false },
       maxWidth: function() { return $(this).data("colorbox-max-width") || false },
@@ -50,16 +50,27 @@
       href: function() { return $(this).data("colorbox-href") || $(this).attr('href') },
       html: function() { return $(this).data("colorbox-html") || false },
       inline: function() { return $(this).data("colorbox-inline") || false },
-      opacity: 0.5
+      opacity: 0.5,
+      onComplete: function() {
+        $("#cboxPrevious, #cboxNext").html('<i class="cboxNavVisible"/>');
+        $("#cboxCurrent, #cboxTitle").css("display", "none");
+        $("#cboxClose").attr("data-placement", "left");
+        $("#cboxClose").attr("data-toggle", "tooltip");
+        $("#cboxClose").attr("data-original-title", "Press Esc to close");
+        if (!$("#cboxOverlayInfo").length) {
+          $("#cboxContent").append('<div id="cboxOverlayInfo"/>');
+        }
+        return $("[data-toggle='tooltip']").tooltip();
+      }
     });
   });
-  
+
   $(document).on('page:change', function() {
       if($colorboxOverlay)
           $colorboxOverlay.appendTo("body");
 
       if($colorboxBox)
           $colorboxBox.appendTo("body");
-  });      
+  });
 
 }) (jQuery);
