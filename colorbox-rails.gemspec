@@ -7,7 +7,7 @@ require "colorbox-rails/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "yoolk-colorbox-rails"
+  s.name        = "colorbox-rails"
   s.version     = ColorboxRails::VERSION
   s.authors     = ["Błażej Kosmowski", "Bartłomiej Danek", "Alexander Maslov", "Torsten Trautwein"]
   s.email       = ["b.kosmowski@selleo.com"]
