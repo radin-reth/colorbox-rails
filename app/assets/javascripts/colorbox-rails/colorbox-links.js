@@ -56,6 +56,7 @@
         $("#cboxCurrent, #cboxTitle").css("display", "none");
         $("#cboxClose").attr("data-placement", "left");
         $("#cboxClose").attr("data-toggle", "tooltip");
+        $("#cboxLoadedContent").css("background-image", "none");
         $("#cboxClose").attr("data-original-title", "Press Esc to close");
         if (!$("#cboxOverlayInfo").length) {
           $("#cboxContent").append('<div id="cboxOverlayInfo"/>');
