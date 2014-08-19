@@ -58,10 +58,14 @@
         $("#cboxClose").attr("data-toggle", "tooltip");
         $("#cboxLoadedContent").css("background-image", "none");
         $("#cboxClose").attr("data-original-title", "Press Esc to close");
+        $("body").css("overflow-y", "hidden");
         if (!$("#cboxOverlayInfo").length) {
           $("#cboxContent").append('<div id="cboxOverlayInfo"/>');
         }
         return $("[data-toggle='tooltip']").tooltip();
+      },
+      onClosed: function() {
+        $("body").css("overflow-y", "auto");
       }
     });
   });
