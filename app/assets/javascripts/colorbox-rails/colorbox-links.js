@@ -11,7 +11,7 @@
   $colorboxOverlay = '';
   $colorboxBox = '';
 
-  $(document).ready(function() {
+  $(window).load(function() {
     $colorboxOverlay = $("#cboxOverlay");
     $colorboxBox = $("#colorbox");
 
